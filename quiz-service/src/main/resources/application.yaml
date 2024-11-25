@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: quiz-service
+  datasource:
+    url: ${DB_URL:}
+    username: ${DB_USERNAME:}
+    password: ${DB_PASSWORD:}
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/changelog-master.xml
+    default-schema: ${PG_SCHEMA:public}
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: ${PORT:8080}
+
+yandex-gpt:
+  url: "https://llm.api.cloud.yandex.net/foundationModels/v1/completion"
+  model-uri: "gpt://${YANDEX_GPT_CATALOG_KEY}/yandexgpt-lite"
+  key: ${YANDEX_GPT_KEY}

@@ -7,3 +7,4 @@ pluginManagement {
 rootProject.name = 'quizservice'
 
 include ('quiz-service')
+include ('file-uploader')
